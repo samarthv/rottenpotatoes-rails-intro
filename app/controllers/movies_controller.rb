@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
     sort = params[:sort] || session[:sort]
     if sort == 'title'
       ordering,@title_header = {:title => :asc}, 'hilite'
+    end
     if sort == 'release_date'
       ordering,@date_header = {:release_date => :asc}, 'hilite'
     end
