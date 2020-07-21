@@ -12,12 +12,14 @@ class MoviesController < ApplicationController
 
   def index
     sort = params[:sort] || session[:sort]
+    
     case sort
     when 'title'
       ordering,@title_header = {:title => :asc}
     when 'release_date'
       ordering,@date_header = {:release_date => :asc}
     end
+      
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
 
